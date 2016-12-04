@@ -1,0 +1,41 @@
+<div ng-controller="FeatureProducts">
+
+    <h1>{{titleTopProduct}}</h1>
+
+    <section class="top-product well">
+        <div class="row">
+            <div class="col-md-2 card small-img" ng-repeat="topProduct in topProducts">
+                <img src="{{topProduct.image}}" alt="">
+                <div>
+                    <h4><a href="/">{{topProduct.title}}</a></h4>
+                    <span>{{topProduct.price}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div ng-controller="ListProductController">
+
+    <h1>{{titleListProduct}}</h1>
+
+    <section class="list-product">
+        <div class="row">
+            <div class="col-md-3 card" ng-repeat="product in products">
+                <img src="{{product.image}}" alt="">
+                <div class="">
+                    <h4><a href="/">{{product.name}}</a></h4>
+                    <span>{{product.price}}</span>
+                </div>
+                <!-- Rating Stars Box -->
+                <div class='rating-stars text-center'>
+                    <ul id='stars'>
+                        <li class='star'  ng-repeat="star in stars" title={{star.title}} data-value={{star.dataValue}}>
+                            <i class='fa fa-star'></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,66 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<div ng-controller="ProductController">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-    <script src="../js/script.js"></script>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-
-<section class="container body-product">
-
-    <div class="row">
-        <div class="col-md-6 big-img">
-            <img src="" alt="">
-        </div>
-        <div class="col-md-6">
-            <div class="">
-                <h4>Producto</h4>
-                <h4>Precio</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lacinia purus vitae fringilla porttitor.
-                    Aenean fringilla posuere magna vel consequat. Phasellus id justo vel turpis consequat venenatis.
-                    Praesent Quis Finibus augue. Etiam sit amet mauris augue.</p>
+    <section class="container body-product">
+        <div class="row">
+            <div class="col-md-6 big-img">
+                <img src="{{product.image}}" alt="">
             </div>
-            <!-- Rating Stars Box -->
-            <div class='rating-stars text-center'>
-                <ul id='stars'>
-                    <li class='star' title='Poor' data-value='1'>
-                        <i class='fa fa-star'></i>
-                    </li>
-                    <li class='star' title='Fair' data-value='2'>
-                        <i class='fa fa-star'></i>
-                    </li>
-                    <li class='star' title='Good' data-value='3'>
-                        <i class='fa fa-star'></i>
-                    </li>
-                    <li class='star' title='Excellent' data-value='4'>
-                        <i class='fa fa-star'></i>
-                    </li>
-                    <li class='star' title='WOW!!!' data-value='5'>
-                        <i class='fa fa-star'></i>
-                    </li>
-                </ul>
+            <div class="col-md-6">
+                <div class="">
+                    <!-- ng-bind = "product.title" -->
+                    <h4>{{product.title}}</h4>
+                    <h5>Descripcion:</h5>
+                    <p>{{product.description}}</p>
+                    <!--IF -->
+                    <div ng-if="product.featured"> <!-- NO VA {{}} PORQUE NO ES UN STRING -->
+                        <h1>ES FEATURED</h1>
+                    </div>
+                    <h5>Precio:</h5>
+                    <h4>{{product.price}}</h4>
+                </div>
+                <!-- Rating Stars Box -->
+                <div class='rating-stars text-center'>
+                    <ul id='stars'>
+                        <li class='star'  ng-repeat="star in stars" title={{star.title}} data-value={{star.dataValue}}>
+                            <i class='fa fa-star'></i>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-</body>
-</html>
+    </section>
+</div>
